@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import MainPage from '../studentPortal/MainPage.jsx';
 import PlaceholderPage from '../pages/PlaceholderPage.jsx';
+import AdminLogin from '../adminComponents/adminLogin.jsx';
+import StudentLogin from '../studentComponents/studentLogin.jsx';
 
 export default function AppRouter() {
   return (
@@ -20,6 +22,8 @@ export default function AppRouter() {
       <Route path="/examinations" element={<PlaceholderPage title="Examinations" />} />
       <Route path="/examinations/notifications" element={<PlaceholderPage title="Notifications" />} />
       <Route path="/examinations/results" element={<PlaceholderPage title="Results" />} />
+      <Route path="adminLogin" element={<AdminLogin/>} />
+      <Route path="studentLogin" element={<StudentLogin/>} />
 
       <Route path="/downloads" element={<PlaceholderPage title="Downloads" />} />
       <Route path="/contact-us" element={<PlaceholderPage title="Contact Us" />} />

@@ -1,13 +1,8 @@
 import { useState } from 'react';
 import Header from '../components/header.jsx';
+import { initialTheme } from '../utils/theme.js';
 import '../styles/theme.css';
 import './MainPage.css';
-
-function initialTheme() {
-  const saved = window.localStorage.getItem('sp-theme');
-  if (saved) return saved;
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
 
 const DICT = {
   en: {
@@ -107,21 +102,12 @@ const NOTIF_TABS = [
   { key: 'other', label: 'Other Notices' },
 ];
 
-function randomCaptcha(len = 6) {
-  const chars = 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
-  let s = '';
-  for (let i = 0; i < len; i++) s += chars[Math.floor(Math.random() * chars.length)];
-  return s;
-}
-
 export default function MainPage() {
   const [lang, setLang] = useState('en');
   const [sizeStep, setSizeStep] = useState(0);
   const [theme, setTheme] = useState(initialTheme);
-  const [loginOpen, setLoginOpen] = useState(false);
   const [notifCategory, setNotifCategory] = useState('exam');
   const [processTab, setProcessTab] = useState('reg');
-  const [captcha, setCaptcha] = useState('bk5CV5');
 
   const t = DICT[lang];
   const rootStyle = { fontSize: `${16 + sizeStep * 1.5}px` };
@@ -150,7 +136,6 @@ export default function MainPage() {
         theme={theme}
         changeTheme={changeTheme}
         t={t}
-        onLoginClick={() => setLoginOpen(true)}
       />
 
       {/* ============ HERO ============ */}
@@ -549,49 +534,6 @@ export default function MainPage() {
         </div>
       </footer>
 
-      {/* ============ LOGIN MODAL ============ */}
-      <div className={`modal-overlay${loginOpen ? ' open' : ''}`} onClick={(e) => { if (e.target === e.currentTarget) setLoginOpen(false); }}>
-        <div className="login-modal">
-          <button className="close-x" aria-label="Close" onClick={() => setLoginOpen(false)}>✕</button>
-          <h3>Candidate Login</h3>
-          <div className="live-users"><span className="pulse"></span> 139 users currently logged in</div>
-
-          <div className="field">
-            <label htmlFor="userType">User type</label>
-            <select id="userType" defaultValue="">
-              <option value="" disabled>Select user type</option>
-              <option>Registered Candidate</option>
-              <option>Accredited Institute</option>
-              <option>Employee</option>
-            </select>
-          </div>
-          <div className="field">
-            <label htmlFor="userId">User ID</label>
-            <input id="userId" type="text" placeholder="Enter your user ID" />
-          </div>
-          <div className="field">
-            <label htmlFor="pwd">Password</label>
-            <input id="pwd" type="password" placeholder="Enter your password" />
-          </div>
-          <div className="field">
-            <label htmlFor="captchaInput">Captcha</label>
-            <div className="captcha-row">
-              <span className="captcha-box">{captcha}</span>
-              <button
-                className="refresh-btn"
-                type="button"
-                aria-label="Refresh captcha"
-                onClick={() => setCaptcha(randomCaptcha())}
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12a9 9 0 1 1 3 6.7M3 12v5h5"></path></svg>
-              </button>
-            </div>
-            <input id="captchaInput" type="text" placeholder="Type the code above" style={{ marginTop: 8 }} />
-          </div>
-          <button className="login-submit" type="button">Log In</button>
-          <div className="login-links"><a href="#">Forgot password?</a><a href="#">New user? Register</a></div>
-        </div>
-      </div>
     </div>
   );
 }
