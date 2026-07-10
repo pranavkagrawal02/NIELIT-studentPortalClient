@@ -1,0 +1,202 @@
+/* ==========================
+   Notification Item
+========================== */
+
+.notif-item {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #ece7ef;
+
+    transition:
+        background .25s ease,
+        transform .2s ease;
+}
+
+.notif-item:last-child {
+    border-bottom: none;
+}
+
+.notif-item:hover {
+    background: #fafbfd;
+}
+
+/* ==========================
+   Left Stripe
+========================== */
+
+.stripe {
+    width: 4px;
+    min-width: 4px;
+    align-self: stretch;
+    border-radius: 999px;
+}
+
+.stripe.pink {
+    background: #f27b95;
+}
+
+.stripe.blue {
+    background: #4c74d8;
+}
+
+.stripe.green {
+    background: #39b56c;
+}
+
+.stripe.orange {
+    background: #f4a640;
+}
+
+.stripe.teal {
+    background: #1fa8b8;
+}
+
+.stripe.gray {
+    background: #b8c1d6;
+}
+
+/* ==========================
+   Content
+========================== */
+
+.body {
+    flex: 1;
+    min-width: 0;
+}
+
+.body p {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 600;
+
+    color: #223b86;
+}
+
+.body time {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: #6077a5;
+}
+
+/* ==========================
+   New Badge
+========================== */
+
+.tag-new {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 3px 10px;
+
+    border-radius: 999px;
+
+    background: #eef6dd;
+    color: #ef6b81;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: .3px;
+
+    white-space: nowrap;
+}
+
+/* ==========================
+   Old Notification
+========================== */
+
+.notif-item.old .body p {
+    color: #55627b;
+    font-weight: 500;
+}
+
+.notif-item.old .body time {
+    color: #8b98b5;
+}
+
+.notif-item.old .stripe {
+    background: #c9d0df;
+}
+
+/* ==========================
+   Links inside Notification
+========================== */
+
+.body a {
+    color: #2147a6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.body a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width:768px) {
+
+    .notif-item {
+        gap: 12px;
+        padding: 18px 0;
+    }
+
+    .body p {
+        font-size: 15px;
+    }
+
+    .body time {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width:576px) {
+
+    .notif-item {
+        gap: 10px;
+        padding: 16px 0;
+    }
+
+    .stripe {
+        width: 3px;
+        min-width: 3px;
+    }
+
+    .body p {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .body time {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+
+    .tag-new {
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+
+}

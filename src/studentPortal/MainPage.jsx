@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from '../components/header.jsx';
 import '../styles/theme.css';
 import './MainPage.css';
+import NotificationBoard from "../components/NotificationBoard";
 
 function initialTheme() {
   const saved = window.localStorage.getItem('sp-theme');
@@ -215,8 +216,9 @@ export default function MainPage() {
         </div>
       </section>
 
-      {/* ============ NOTIFICATIONS ============ */}
-      <section className="split-section">
+      {/* {/* ============ NOTIFICATIONS ============ */}
+      <NotificationBoard />
+      {/* <section className="split-section"> 
         <div className="container">
           <div className="notif-card">
             <div className="notif-head">
@@ -253,7 +255,7 @@ export default function MainPage() {
             <a className="view-all" href="#directory" style={{ alignSelf: 'flex-end' }}>View All Notifications →</a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ============ QUICK LINKS ============ */}
       <section className="quicklinks-section">
