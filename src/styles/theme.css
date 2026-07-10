@@ -1,0 +1,115 @@
+/*
+  Theme tokens for the Student Portal.
+  Each theme is a full override of the same variable set, scoped under
+  .sp-root[data-theme="..."]. Add a new theme by copying a block and
+  changing values — no other file needs to change.
+*/
+
+/* ---------- Light (default) ---------- */
+.sp-root,
+.sp-root[data-theme='light'] {
+  --ink: #1a2240;
+  --muted: #56708d;
+  --navy: #283775;
+  --navy-2: #2b66a6;
+  --indigo: #3868a6;
+  --violet: #283775;
+  --orange: #e1637c;
+  --orange-dark: #e1637c;
+  --orange-100: #ebf5d9;
+  --green: #d0a195;
+  --green-100: #ebf5d9;
+  --blue: #2b66a6;
+  --blue-100: #d4e4f5;
+  --purple-100: #d4e0f0;
+  --teal: #3868a6;
+  --teal-100: #d5e2f5;
+  --steel: #56708d;
+  --steel-100: #e8ecf2;
+  --rose: #e1637c;
+  --amber: #d0a195;
+  --amber-100: #f5e8e5;
+
+  --bg: #f4f0f3;
+  --card: #ffffff;
+  --line: #e2d7de;
+  --radius: 16px;
+  --shadow: 0 12px 32px -14px rgba(40, 55, 117, 0.18);
+
+  --header-bg: #00233d;
+  --header-text: #c8d4e8;
+  --footer-bg: #00233d;
+  --footer-text: #b5c4db;
+}
+
+/* ---------- Dark ---------- */
+.sp-root[data-theme='dark'] {
+  --ink: #e7ecfb;
+  --muted: #9aafc9;
+  --navy: #cdd9f5;
+  --navy-2: #6fa0d6;
+  --indigo: #7fb2e8;
+  --violet: #a6b4f2;
+  --orange: #f0839a;
+  --orange-dark: #ef6c86;
+  --orange-100: #3a2430;
+  --green: #e3b6a9;
+  --green-100: #2c2320;
+  --blue: #6fa0d6;
+  --blue-100: #1c2c47;
+  --purple-100: #262b4a;
+  --teal: #6fc2c9;
+  --teal-100: #1b2f33;
+  --steel: #9aafc9;
+  --steel-100: #202741;
+  --rose: #f0839a;
+  --amber: #e3b6a9;
+  --amber-100: #2c2320;
+
+  --bg: #0b1020;
+  --card: #131a30;
+  --line: #232c4a;
+  --radius: 16px;
+  --shadow: 0 12px 32px -14px rgba(0, 0, 0, 0.65);
+
+  --header-bg: #060b18;
+  --header-text: #c8d4e8;
+  --footer-bg: #060b18;
+  --footer-text: #b5c4db;
+}
+
+/* ---------- High contrast ---------- */
+.sp-root[data-theme='contrast'] {
+  --ink: #ffe600;
+  --muted: #ffffff;
+  --navy: #ffe600;
+  --navy-2: #ffe600;
+  --indigo: #00ffff;
+  --violet: #ff5cf4;
+  --orange: #ffe600;
+  --orange-dark: #ffe600;
+  --orange-100: #000000;
+  --green: #00ff6a;
+  --green-100: #000000;
+  --blue: #00ffff;
+  --blue-100: #000000;
+  --purple-100: #000000;
+  --teal: #00ffff;
+  --teal-100: #000000;
+  --steel: #ffffff;
+  --steel-100: #000000;
+  --rose: #ff5cf4;
+  --amber: #ffa500;
+  --amber-100: #000000;
+
+  --bg: #000000;
+  --card: #000000;
+  --line: #ffe600;
+  --radius: 16px;
+  --shadow: none;
+
+  --header-bg: #000000;
+  --header-text: #ffe600;
+  --footer-bg: #000000;
+  --footer-text: #ffe600;
+}
