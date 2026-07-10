@@ -32,11 +32,11 @@
 /* ============ HEADER ============ */
 header.site-header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;transition:background .2s;}
 
-.identity-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 24px;flex-wrap:wrap;}
+.identity-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 24px;flex-wrap:wrap;}
 .identity-left{display:flex;align-items:center;gap:14px;min-width:0;}
 .identity-right{display:flex;align-items:center;gap:14px;min-width:0;}
-.identity-left .nielit-logo{flex:none;height:54px;width:auto;object-fit:contain;border-radius:4px;}
-.identity-right .emblem{flex:none;height:54px;width:auto;object-fit:contain;}
+.identity-left .nielit-logo{flex:none;height:64px;width:auto;object-fit:contain;border-radius:4px;}
+.identity-right .emblem{flex:none;height:64px;width:auto;object-fit:contain;}
 .gov-text-left{line-height:1.32;min-width:0;text-align:left;}
 .gov-text-left .hi-line1{font-family:'Sora',sans-serif;font-size:15.5px;font-weight:700;color:var(--navy);}
 .gov-text-left .en-line1{font-size:13px;font-weight:700;color:var(--navy);margin-top:1px;}
@@ -52,7 +52,9 @@ header.site-header{background:var(--card);border-bottom:1px solid var(--line);po
 }
 .btn svg{width:15px;height:15px;}
 .btn-ghost{border-color:#fff;color:#fff;background:transparent;}
+.header-actions .btn-ghost{color:#fff;}
 .btn-ghost:hover{background:#fff;color:var(--navy);}
+.header-actions .btn-ghost:hover{color:var(--navy);}
 .btn-solid{background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff;box-shadow:0 8px 20px -8px rgba(142,197,70,0.6);}
 .btn-solid:hover{transform:translateY(-1px);box-shadow:0 12px 26px -8px rgba(142,197,70,0.7);}
 

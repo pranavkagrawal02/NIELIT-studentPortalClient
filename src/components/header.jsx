@@ -195,7 +195,7 @@ export default function Header({ lang, setLang, adjustSize, theme, changeTheme, 
             <div className="header-actions">
               <Link className="btn btn-ghost" to="/studentLogin">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M9 6v-.5A2.5 2.5 0 0 1 11.5 3H17a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5.5A2.5 2.5 0 0 1 9 18.5V18"></path><path d="M13 12H3m0 0 3.5-3.5M3 12l3.5 3.5"></path></svg>
-                <span>{t.btnLogin}</span>
+                <span className='text-white'>{t.btnLogin}</span>
               </Link>
               <a className="btn btn-solid" href="#process">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><circle cx="9" cy="8" r="3.2"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><path d="M18 8v5m-2.5-2.5h5"></path></svg>
