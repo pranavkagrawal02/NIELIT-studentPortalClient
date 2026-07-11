@@ -11,7 +11,7 @@
 
     padding: 20px 0;
 
-    border-bottom: 1px solid #ece7ef;
+    border-bottom: 1px solid var(--line);
 
     transition:
         background .25s ease,
@@ -23,7 +23,7 @@
 }
 
 .notif-item:hover {
-    background: #fafbfd;
+    background: var(--steel-100);
 }
 
 /* ==========================
@@ -38,27 +38,27 @@
 }
 
 .stripe.pink {
-    background: #f27b95;
+    background: var(--notif-stripe-pink);
 }
 
 .stripe.blue {
-    background: #4c74d8;
+    background: var(--notif-stripe-blue);
 }
 
 .stripe.green {
-    background: #39b56c;
+    background: var(--notif-stripe-green);
 }
 
 .stripe.orange {
-    background: #f4a640;
+    background: var(--notif-stripe-orange);
 }
 
 .stripe.teal {
-    background: #1fa8b8;
+    background: var(--notif-stripe-teal);
 }
 
 .stripe.gray {
-    background: #b8c1d6;
+    background: var(--notif-stripe-gray);
 }
 
 /* ==========================
@@ -82,7 +82,7 @@
     line-height: 1.5;
     font-weight: 600;
 
-    color: #223b86;
+    color: var(--ink);
 }
 
 .body time {
@@ -93,7 +93,7 @@
     font-size: 14px;
     line-height: 1.6;
 
-    color: #6077a5;
+    color: var(--muted);
 }
 
 /* ==========================
@@ -109,8 +109,8 @@
 
     border-radius: 999px;
 
-    background: #eef6dd;
-    color: #ef6b81;
+    background: var(--notif-tag-new-bg);
+    color: var(--notif-tag-new-color);
 
     font-size: 11px;
     font-weight: 700;
@@ -125,16 +125,17 @@
 ========================== */
 
 .notif-item.old .body p {
-    color: #55627b;
+    color: var(--muted);
     font-weight: 500;
 }
 
 .notif-item.old .body time {
-    color: #8b98b5;
+    color: var(--muted);
+    opacity: 0.8;
 }
 
 .notif-item.old .stripe {
-    background: #c9d0df;
+    background: var(--steel-100);
 }
 
 /* ==========================
@@ -142,7 +143,7 @@
 ========================== */
 
 .body a {
-    color: #2147a6;
+    color: var(--blue);
     text-decoration: none;
     font-weight: 600;
 }
