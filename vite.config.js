@@ -6,7 +6,7 @@ export default defineConfig({
 
   server: {
     host: "0.0.0.0", // Listen on all network interfaces
-    port: 80,
+    port: 8080,
     strictPort: true
   },
 
