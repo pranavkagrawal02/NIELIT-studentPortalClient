@@ -1,0 +1,133 @@
+/* ==========================
+   Notification Tabs
+========================== */
+
+.notif-tabs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+/* ==========================
+   Tab Button
+========================== */
+
+.notif-tabs button {
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: 1px solid var(--line);
+    background: var(--card);
+
+    color: var(--muted);
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease;
+
+    white-space: nowrap;
+}
+
+/* ==========================
+   Hover
+========================== */
+
+.notif-tabs button:hover {
+    background: var(--steel-100);
+    border-color: var(--steel);
+    color: var(--navy-2);
+}
+
+/* ==========================
+   Active
+========================== */
+
+.notif-tabs button.active {
+    background: var(--navy);
+    color: var(--card);
+    border-color: var(--navy);
+
+    box-shadow:
+        0 6px 14px var(--shadow);
+}
+
+/* ==========================
+   Focus
+========================== */
+
+.notif-tabs button:focus-visible {
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px var(--shadow);
+}
+
+/* ==========================
+   Click Effect
+========================== */
+
+.notif-tabs button:active {
+    transform: scale(.97);
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width:992px) {
+
+    .notif-tabs {
+        gap: 8px;
+    }
+
+    .notif-tabs button {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .notif-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+
+        padding-bottom: 6px;
+
+        scrollbar-width: none;
+    }
+
+    .notif-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .notif-tabs button {
+        flex: 0 0 auto;
+    }
+
+}
+
+@media (max-width:576px) {
+
+    .notif-tabs button {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+}

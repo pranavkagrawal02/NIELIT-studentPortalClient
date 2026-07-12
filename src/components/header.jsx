@@ -1,27 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../config/apiClient.js';
+import { NavLink } from '../utils/NavLink.jsx';
 
-// page_id -> route path. Falls back to '#' for pages the CMS knows about
-// that don't have a matching route yet.
-const PAGE_PATHS = {
-  // 1: '/', // Home
-  // 2: '/about-us',
-  // 3: '/courses',
-  // 4: '/examinations',
-  // 5: '/downloads',
-  // 6: '/contact-us',
-  // 11: '/about-us/vision',
-  // 12: '/about-us/mission',
-  // 13: '/about-us/director',
-  // 21: '/courses/o-level',
-  // 22: '/courses/a-level',
-  // 23: '/courses/b-level',
-  // 31: '/examinations/notifications',
-  // 32: '/examinations/results',
-};
-function pathFor(pageId) {
-  return PAGE_PATHS[pageId] || '#';
+function pathFor(item) {
+  return item.link || '#';
 }
 
 const THEMES = [
@@ -176,16 +159,16 @@ export default function Header({ lang, setLang, adjustSize, theme, changeTheme, 
             <nav className="main-nav">
               {headerItem.map((item) => (
                 <div className={`nav-item${item.children?.length ? ' has-children' : ''}`} key={item.menuId}>
-                  <Link to={pathFor(item.pageId)} className={item.pageId === 1 ? 'active' : ''}>
+                  <NavLink to={pathFor(item)} className={item.pageId === 1 ? 'active' : ''}>
                     {item.menuName}
                     {item.children?.length > 0 && (
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="m6 9 6 6 6-6"></path></svg>
                     )}
-                  </Link>
+                  </NavLink>
                   {item.children?.length > 0 && (
                     <div className="dropdown">
                       {item.children.map((child) => (
-                        <Link key={child.menuId} to={pathFor(child.pageId)}>{child.menuName}</Link>
+                        <NavLink key={child.menuId} to={pathFor(child)}>{child.menuName}</NavLink>
                       ))}
                     </div>
                   )}

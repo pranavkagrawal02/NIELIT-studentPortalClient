@@ -32,11 +32,11 @@
 /* ============ HEADER ============ */
 header.site-header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;transition:background .2s;}
 
-.identity-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 24px;flex-wrap:wrap;}
+.identity-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:40px 24px;flex-wrap:wrap;}
 .identity-left{display:flex;align-items:center;gap:14px;min-width:0;}
 .identity-right{display:flex;align-items:center;gap:14px;min-width:0;}
-.identity-left .nielit-logo{flex:none;height:64px;width:auto;object-fit:contain;border-radius:4px;}
-.identity-right .emblem{flex:none;height:64px;width:auto;object-fit:contain;}
+.identity-left .nielit-logo{flex:none;height:78px;width:auto;object-fit:contain;border-radius:4px;margin:10px 14px 10px 0;}
+.identity-right .emblem{flex:none;height:78px;width:auto;object-fit:contain;margin:10px 0 10px 14px;}
 .gov-text-left{line-height:1.32;min-width:0;text-align:left;}
 .gov-text-left .hi-line1{font-family:'Sora',sans-serif;font-size:15.5px;font-weight:700;color:var(--navy);}
 .gov-text-left .en-line1{font-size:13px;font-weight:700;color:var(--navy);margin-top:1px;}
@@ -117,12 +117,13 @@ nav.main-nav svg{width:12px;height:12px;}
 }
 .hero p.lead{color:#C8D4E8;font-size:15.5px;max-width:520px;margin:16px 0 26px;}
 
-.search-row{display:flex;gap:0;max-width:520px;background:var(--card);border-radius:12px;padding:5px;box-shadow:var(--shadow);}
-.search-row input{flex:1;border:none;outline:none;padding:11px 14px;font-size:13.8px;border-radius:8px;color:var(--ink);}
+.search-row{display:flex;gap:0;max-width:520px;background:#fff;border-radius:12px;padding:5px;box-shadow:var(--shadow);}
+.search-row input{flex:1;border:none;outline:none;padding:11px 14px;font-size:13.8px;border-radius:8px;color:#1a2240;background:#fff;}
 .search-row button{
-  background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff;border:none;
-  padding:11px 20px;border-radius:8px;font-weight:700;font-size:13.5px;
+  background:var(--rose);color:#fff;border:none;
+  padding:11px 20px;border-radius:8px;font-weight:700;font-size:13.5px;transition:.2s;
 }
+.search-row button:hover{filter:brightness(0.92);}
 .chip-row{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap;max-width:540px;}
 .chip{
   background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.2);

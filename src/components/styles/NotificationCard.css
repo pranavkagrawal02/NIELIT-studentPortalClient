@@ -1,0 +1,203 @@
+/* ==========================
+   Notification Item
+========================== */
+
+.notif-item {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid var(--line);
+
+    transition:
+        background .25s ease,
+        transform .2s ease;
+}
+
+.notif-item:last-child {
+    border-bottom: none;
+}
+
+.notif-item:hover {
+    background: var(--steel-100);
+}
+
+/* ==========================
+   Left Stripe
+========================== */
+
+.stripe {
+    width: 4px;
+    min-width: 4px;
+    align-self: stretch;
+    border-radius: 999px;
+}
+
+.stripe.pink {
+    background: var(--notif-stripe-pink);
+}
+
+.stripe.blue {
+    background: var(--notif-stripe-blue);
+}
+
+.stripe.green {
+    background: var(--notif-stripe-green);
+}
+
+.stripe.orange {
+    background: var(--notif-stripe-orange);
+}
+
+.stripe.teal {
+    background: var(--notif-stripe-teal);
+}
+
+.stripe.gray {
+    background: var(--notif-stripe-gray);
+}
+
+/* ==========================
+   Content
+========================== */
+
+.body {
+    flex: 1;
+    min-width: 0;
+}
+
+.body p {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 600;
+
+    color: var(--ink);
+}
+
+.body time {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: var(--muted);
+}
+
+/* ==========================
+   New Badge
+========================== */
+
+.tag-new {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 3px 10px;
+
+    border-radius: 999px;
+
+    background: var(--notif-tag-new-bg);
+    color: var(--notif-tag-new-color);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: .3px;
+
+    white-space: nowrap;
+}
+
+/* ==========================
+   Old Notification
+========================== */
+
+.notif-item.old .body p {
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.notif-item.old .body time {
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+.notif-item.old .stripe {
+    background: var(--steel-100);
+}
+
+/* ==========================
+   Links inside Notification
+========================== */
+
+.body a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.body a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width:768px) {
+
+    .notif-item {
+        gap: 12px;
+        padding: 18px 0;
+    }
+
+    .body p {
+        font-size: 15px;
+    }
+
+    .body time {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width:576px) {
+
+    .notif-item {
+        gap: 10px;
+        padding: 16px 0;
+    }
+
+    .stripe {
+        width: 3px;
+        min-width: 3px;
+    }
+
+    .body p {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .body time {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+
+    .tag-new {
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+
+}

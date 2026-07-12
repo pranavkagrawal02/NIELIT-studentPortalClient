@@ -3,11 +3,13 @@ import MainPage from '../studentPortal/MainPage.jsx';
 import PlaceholderPage from '../pages/PlaceholderPage.jsx';
 import AdminLogin from '../adminComponents/adminLogin.jsx';
 import StudentLogin from '../studentComponents/studentLogin.jsx';
+import Page from '../components/Page.jsx';
 
 export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
+      <Route path="/page" element={<Page />} />
 
       <Route path="/about-us" element={<PlaceholderPage title="About Us" />} />
       <Route path="/about-us/vision" element={<PlaceholderPage title="Vision" />} />
