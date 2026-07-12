@@ -1,27 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../config/apiClient.js';
+import { NavLink } from '../utils/NavLink.jsx';
 
-// page_id -> route path. Falls back to '#' for pages the CMS knows about
-// that don't have a matching route yet.
-const PAGE_PATHS = {
-  1: '/', // Home
-  2: '/about-us',
-  3: '/courses',
-  4: '/examinations',
-  5: '/downloads',
-  6: '/contact-us',
-  11: '/about-us/vision',
-  12: '/about-us/mission',
-  13: '/about-us/director',
-  21: '/courses/o-level',
-  22: '/courses/a-level',
-  23: '/courses/b-level',
-  31: '/examinations/notifications',
-  32: '/examinations/results',
-};
-function pathFor(pageId) {
-  return PAGE_PATHS[pageId] || '#';
+function pathFor(item) {
+  return item.link || '#';
 }
 
 const THEMES = [
@@ -50,43 +33,43 @@ const THEMES = [
 
 // Used only if the cms-service / api-gateway aren't reachable yet, so the
 // nav still renders something sensible during local frontend dev.
-const FALLBACK_MENU = [
-  { menuId: 1, menuName: 'Home', pageId: 1, children: [] },
-  {
-    menuId: 2,
-    menuName: 'About Us',
-    pageId: 2,
-    children: [
-      { menuId: 11, menuName: 'Vision', pageId: 11, children: [] },
-      { menuId: 12, menuName: 'Mission', pageId: 12, children: [] },
-      { menuId: 13, menuName: 'Director', pageId: 13, children: [] },
-    ],
-  },
-  {
-    menuId: 3,
-    menuName: 'Courses',
-    pageId: 3,
-    children: [
-      { menuId: 21, menuName: 'O Level', pageId: 21, children: [] },
-      { menuId: 22, menuName: 'A Level', pageId: 22, children: [] },
-      { menuId: 23, menuName: 'B Level', pageId: 23, children: [] },
-    ],
-  },
-  {
-    menuId: 4,
-    menuName: 'Examinations',
-    pageId: 4,
-    children: [
-      { menuId: 31, menuName: 'Notifications', pageId: 31, children: [] },
-      { menuId: 32, menuName: 'Results', pageId: 32, children: [] },
-    ],
-  },
-  { menuId: 5, menuName: 'Downloads', pageId: 5, children: [] },
-  { menuId: 6, menuName: 'Contact Us', pageId: 6, children: [] },
-];
+// const FALLBACK_MENU = [
+  // { menuId: 1, menuName: 'Home', pageId: 1, children: [] },
+  // {
+  //   menuId: 2,
+  //   menuName: 'About Us',
+  //   pageId: 2,
+  //   children: [
+  //     { menuId: 11, menuName: 'Vision', pageId: 11, children: [] },
+  //     { menuId: 12, menuName: 'Mission', pageId: 12, children: [] },
+  //     { menuId: 13, menuName: 'Director', pageId: 13, children: [] },
+  //   ],
+  // },
+  // {
+  //   menuId: 3,
+  //   menuName: 'Courses',
+  //   pageId: 3,
+  //   children: [
+  //     { menuId: 21, menuName: 'O Level', pageId: 21, children: [] },
+  //     { menuId: 22, menuName: 'A Level', pageId: 22, children: [] },
+  //     { menuId: 23, menuName: 'B Level', pageId: 23, children: [] },
+  //   ],
+  // },
+  // {
+  //   menuId: 4,
+  //   menuName: 'Examinations',
+  //   pageId: 4,
+  //   children: [
+  //     { menuId: 31, menuName: 'Notifications', pageId: 31, children: [] },
+  //     { menuId: 32, menuName: 'Results', pageId: 32, children: [] },
+  //   ],
+  // },
+  // { menuId: 5, menuName: 'Downloads', pageId: 5, children: [] },
+  // { menuId: 6, menuName: 'Contact Us', pageId: 6, children: [] },
+// ];
 
-export default function Header({ lang, setLang, adjustSize, theme, changeTheme, t, onLoginClick }) {
-  const [headerItem, setHeaderItem] = useState(FALLBACK_MENU);
+export default function Header({ lang, setLang, adjustSize, theme, changeTheme, t }) {
+  const [headerItem, setHeaderItem] = useState([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -176,16 +159,16 @@ export default function Header({ lang, setLang, adjustSize, theme, changeTheme, 
             <nav className="main-nav">
               {headerItem.map((item) => (
                 <div className={`nav-item${item.children?.length ? ' has-children' : ''}`} key={item.menuId}>
-                  <Link to={pathFor(item.pageId)} className={item.pageId === 1 ? 'active' : ''}>
+                  <NavLink to={pathFor(item)} className={item.pageId === 1 ? 'active' : ''}>
                     {item.menuName}
                     {item.children?.length > 0 && (
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="m6 9 6 6 6-6"></path></svg>
                     )}
-                  </Link>
+                  </NavLink>
                   {item.children?.length > 0 && (
                     <div className="dropdown">
                       {item.children.map((child) => (
-                        <Link key={child.menuId} to={pathFor(child.pageId)}>{child.menuName}</Link>
+                        <NavLink key={child.menuId} to={pathFor(child)}>{child.menuName}</NavLink>
                       ))}
                     </div>
                   )}
@@ -193,10 +176,10 @@ export default function Header({ lang, setLang, adjustSize, theme, changeTheme, 
               ))}
             </nav>
             <div className="header-actions">
-              <button className="btn btn-ghost" type="button" onClick={onLoginClick}>
+              <Link className="btn btn-ghost" to="/studentLogin">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M9 6v-.5A2.5 2.5 0 0 1 11.5 3H17a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5.5A2.5 2.5 0 0 1 9 18.5V18"></path><path d="M13 12H3m0 0 3.5-3.5M3 12l3.5 3.5"></path></svg>
-                <span>{t.btnLogin}</span>
-              </button>
+                <span className='text-white'>{t.btnLogin}</span>
+              </Link>
               <a className="btn btn-solid" href="#process">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><circle cx="9" cy="8" r="3.2"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><path d="M18 8v5m-2.5-2.5h5"></path></svg>
                 <span>{t.btnReg}</span>

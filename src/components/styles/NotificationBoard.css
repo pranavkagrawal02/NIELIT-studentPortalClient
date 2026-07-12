@@ -1,0 +1,180 @@
+/* ==========================
+   Notification Board
+========================== */
+
+.split-section {
+    padding: 52px 0;
+}
+
+.notif-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px 28px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* ==========================
+   Header
+========================== */
+
+.notif-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.notif-head h3 {
+    flex: 1;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy);
+    letter-spacing: -.2px;
+}
+
+/* ==========================
+   Bell
+========================== */
+
+.bell {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: var(--notif-bell-bg);
+    color: var(--notif-bell-color);
+
+    flex-shrink: 0;
+}
+
+.bell svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==========================
+   New Badge
+========================== */
+
+.new-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 52px;
+    height: 30px;
+
+    padding: 0 12px;
+
+    border-radius: 999px;
+
+    background: var(--notif-new-bg);
+    color: var(--notif-new-color);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ==========================
+   Notification List
+========================== */
+
+.notif-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================
+   View All
+========================== */
+
+.view-all {
+    display: inline-flex;
+    align-items: center;
+
+    margin-top: 18px;
+
+    float: right;
+
+    text-decoration: none;
+
+    color: var(--indigo);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    transition: .25s ease;
+}
+
+.view-all:hover {
+    color: var(--navy-2);
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width:992px) {
+
+    .notif-card {
+        padding: 22px;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .split-section {
+        padding: 35px 0;
+    }
+
+    .notif-card {
+        border-radius: 18px;
+        padding: 18px;
+    }
+
+    .notif-head {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .notif-head h3 {
+        font-size: 18px;
+    }
+
+    .new-count {
+        margin-left: auto;
+    }
+
+}
+
+@media (max-width:576px) {
+
+    .notif-head {
+        align-items: flex-start;
+    }
+
+    .notif-head h3 {
+        font-size: 17px;
+    }
+
+    .bell {
+        width: 40px;
+        height: 40px;
+    }
+
+    .bell svg {
+        width: 18px;
+        height: 18px;
+    }
+
+}
